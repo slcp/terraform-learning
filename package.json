@@ -1,0 +1,22 @@
+{
+  "name": "tf",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Stuart Forrest <stuart.forrest@infinityworks.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "esbuild --bundle --outdir=dist --platform=node ./src/add/add.ts",
+    "postbuild": "cd dist && zip -r add.zip .",
+    "plan": "cd infra && aws-vault exec sandbox --no-session  -- terraform plan",
+    "fmt": "cd infra && aws-vault exec sandbox --no-session  -- terraform fmt",
+    "validate": "cd infra && aws-vault exec sandbox --no-session  -- terraform validate",
+    "apply": "cd infra && aws-vault exec sandbox --no-session  -- terraform apply"
+  },
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.119",
+    "@types/node": "^20.5.9",
+    "aws-lambda": "^1.0.7",
+    "esbuild": "^0.19.2",
+    "typescript": "^5.2.2"
+  }
+}

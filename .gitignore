@@ -1,0 +1,7 @@
+node_modules
+dist
+
+infra/*.tfstate
+infra/*.tfstate.*.backup
+infra/*.tfvars
+infra/.terraform
